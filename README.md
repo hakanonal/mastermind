@@ -19,3 +19,4 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
     - print the board
     - add user input functionallty.
 - So curentlly the code is not working. Work is in progess...
+- [This](https://bnbasilio.medium.com/mastermind-a-how-to-in-python-7b80ca9809ab) article has a good algorithm to find the feedback array check provideFeedback method in the article.
