@@ -14,6 +14,7 @@ class agent:
         self.config = config
         self.q_table = {}
         self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
+        self.min_action = int("".join([str(1) for i in range(self.config['digits'])]))
         
 
     def get_next_action(self, state):
@@ -35,6 +36,8 @@ class agent:
         state_hash = str(state)
         if state_hash not in self.q_table:
             self.q_table[state_hash] = np.zeros(self.action_space_count,dtype=int)
+            for i in range(self.min_action):
+                self.q_table[state_hash][i] = -999999
         return self.q_table[state_hash]
 
     def train(self, old_state, new_state, action, reward):

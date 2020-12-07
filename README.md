@@ -46,8 +46,13 @@ Check the notebook [play](play.ipynb)
         - I will try [this](https://stackoverflow.com/questions/7027199/hashing-arrays-in-python) blog to fix. Done...
     - So the action space quite high. it is the digits^peg_count. For the default values it is 4^6=4096. However I can still try to keep a q-table. We'll see the size of it after some iterations.
         - I need to think through the action space. The above sentences seems to be incorrect. Let's assume though default parameters. 4 digits and 6 pegs. So I need to 4 different digits that each digit can be between 1 and 6. So the highest number is 6666. So my q-table's each state action space array should be in the size of 6666 fır this case. I bealive there is better way to store this I will not consider to find a better way now. I wll come back this issue if there is memory or ant other size problems.
-        - Ok I have moving pretty fast I am almost there. Now time to time agent guesses 0 because there is 0 in the q_table. So the greedy method alson considers the actions that is below 1111. Now what? 
-            - In thory if I explore all the time I will not bump this error. and it is working. So the greedy method has to be fixed
+        - Ok I am moving pretty fast I am almost there. Now time to time agent guesses 0 because there is 0 in the q_table. The greedy method also considers the actions that is below 1111. Now what? 
+            - In thory if I explore all the time I will not bump this error. and it is working. So the greedy method has to be fixed.
+    - How to fix greedy method.
+        - Ok! actually I did very similar solution on my tic-tac-toe project. I can iniitially assign very negative number for the items that are not in action space. An it is completed.
+- We got the first result: 
+    - wandb dashboard has been configured. you can check it from [here](https://wandb.ai/hakanonal/mastermind)
+    - Unfourtunatelly avarage win is very close to zero. Here is the [run](https://wandb.ai/hakanonal/mastermind/runs/1byxxyuq) Since the number of avaible states and avaible action space very large. policy file is rediculasly large and memory consumption is mindbuggling. in 1000 episodes it is resanablly fast but it is not enough for training. So when we increase the episode number q-table gets very large. The program tries to memorize all posisbilites and simply it is not enugh area to memorize all posisbilies. In this circumtances we need to convert this into NN. 
 
 
     
