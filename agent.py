@@ -5,42 +5,37 @@ import wandb
 
 class agent:
 
-    def __init__(self,discount,exploration_rate,decay_factor, learning_rate):
-        self.discount = discount 
-        self.exploration_rate = exploration_rate
-        self.exploration_rate_constant = exploration_rate
-        self.decay_factor = decay_factor
-        self.learning_rate = learning_rate
+    def __init__(self,config):
+        self.discount = config['discount']
+        self.exploration_rate = config['exploration_rate']
+        self.exploration_rate_constant = config['exploration_rate']
+        self.decay_factor = config['decay_factor']
+        self.learning_rate = config['learning_rate']
+        self.config = config
         self.q_table = {}
+        self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))
         
 
     def get_next_action(self, state):
         if random.random() < self.exploration_rate: # Explore (gamble) or exploit (greedy)
-            return self.random_action(state)
+            return self.random_action()
         else:
             return self.greedy_action(state)
 
-    #!!!! these action are wrong they need to give valid actions. It should be between 0 and 8 and also the action position has to be empty on the state.
-    def actionSpaceOfState(self,state):
-        return [pos for pos, char in enumerate(state) if char == " "]
     def greedy_action(self, state):
-        action_space = self.actionSpaceOfState(state)
-        filtered_q_table = []
-        q_table_state = self.getQ(state)
-        for i in range(9):
-            if i in action_space:
-                filtered_q_table.append(q_table_state[i])
-            else:
-                filtered_q_table.append(-999999999999)
-        return np.argmax(filtered_q_table)
-    def random_action(self,state):
-        return random.choice(self.actionSpaceOfState(state))
-    #!!!!!!!
+        return np.argmax(self.getQ(state))
+    
+    def random_action(self):
+        generated_code = []
+        for _ in range(1,self.config['digits']+1):
+            generated_code.append(random.choice(self.config['peg_space']))
+        return int("".join([str(i) for i in generated_code]))
 
     def getQ(self,state):
-        if state not in self.q_table:
-            self.q_table[state] = np.zeros(9)
-        return self.q_table[state]
+        state_hash = str(state)
+        if state_hash not in self.q_table:
+            self.q_table[state_hash] = np.zeros(self.action_space_count,dtype=int)
+        return self.q_table[state_hash]
 
     def train(self, old_state, new_state, action, reward):
         
@@ -61,12 +56,12 @@ class agent:
             self.exploration_rate = self.exploration_rate_constant
 
     def save(self, file="policy"):
-        fw = open(file, 'wb')
+        fw = open(file+'_'+self.config['digits']+'_'+self.config['peg_count'], 'wb')
         pickle.dump(self.q_table, fw)
         fw.close()
         wandb.save(file)
 
     def load(self, file="policy"):
-        fr = open(file, 'rb')
+        fr = open(file+'_'+self.config['digits']+'_'+self.config['peg_count'], 'rb')
         self.q_table = pickle.load(fr)
         fr.close()  

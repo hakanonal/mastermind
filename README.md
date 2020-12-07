@@ -37,3 +37,12 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
 - I will try to publish via colab.
     - That did not work. Because the references to the environment and agent classes are not working properlly in colab.
 - So the game has completed. Now it is time to construct the agent class. Curentllt the games ai mode is not working properlly. At least iit is not tested well.
+- Agent:
+    - I have bumped into unhashable type: 'list' error. since the state in in list format and it is not hashable. 
+        - I will try [this](https://stackoverflow.com/questions/7027199/hashing-arrays-in-python) blog to fix. Done...
+    - So the action space quite high. it is the digits^peg_count. For the default values it is 4^6=4096. However I can still try to keep a q-table. We'll see the size of it after some iterations.
+        - I need to think through the action space. The above sentences seems to be incorrect. Let's assume though default parameters. 4 digits and 6 pegs. So I need to 4 different digits that each digit can be between 1 and 6. So the highest number is 6666. So my q-table's each state action space array should be in the size of 6666 fır this case. I bealive there is better way to store this I will not consider to find a better way now. I wll come back this issue if there is memory or ant other size problems.
+        - Ok I have moving pretty fast I am almost there. Now time to time agent guesses 0 because there is 0 in the q_table. So the greedy method alson considers the actions that is below 1111. Now what?
+    
+    
+        

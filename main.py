@@ -7,7 +7,7 @@ config = {
     'decay_factor':0.99,
     'learning_rate':0.01,
     'episode':1000,
-    'debug' : 0,
+    'debug' : 1,
     'chances' : 12,
     'digits' : 4,
     'peg_count': 6,

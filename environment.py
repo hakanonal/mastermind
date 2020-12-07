@@ -13,12 +13,7 @@ class environment:
         else:
             wandb.init(project="mastermind",config=config)
             self.config = config
-        self.agent7 = agent(
-            discount=self.config['discount'],
-            exploration_rate=self.config['exploration_rate'],
-            decay_factor=self.config['decay_factor'],
-            learning_rate=self.config['learning_rate'],
-            )
+        self.agent7 = agent(self.config)
         self.config['peg_space'] = list(range(1,self.config['peg_count']+1))
         self.initGame()
         self.metrics = {
@@ -74,7 +69,7 @@ class environment:
 
                 new_state = self.play(chance,action_to_play)
 
-                #self.debug1(episode,self.state,new_state,action_to_play)
+                self.debug1(episode,self.state,new_state,action_to_play)
                 self.actions_played.append((self.state,new_state,action_to_play))
                 self.state = new_state
                 if(self.config['mode'] == 'user'):
@@ -147,6 +142,6 @@ class environment:
 
     
     def debug1(self,episode,old_state,new_state,action):
-        if(self.config['debug']):
+        if(self.config['debug'] and self.config['mode'] == 'ai'):
             print("%d = %s -> %s -> %s"%(episode,old_state,action,new_state))
             input("continue?")
