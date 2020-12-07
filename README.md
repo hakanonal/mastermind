@@ -57,6 +57,8 @@ Check the notebook [play](play.ipynb)
 - Before moving into NN, I want to make this code a playable game for everybody. So I am again trying to host the code on colab so that everybody can run the code without installing any python lib on thier local environment.
     - I have check [this](https://www.programiz.com/python-programming/package) article. There is a __init__.py in every module. What is that?
     - [This](https://packaging.python.org/tutorials/packaging-projects/) article explains the pip packaging procedure fully.
+    - Read about [this](https://docs.python.org/3/tutorial/modules.html#packages)
+    - Implemented the [setup.py](setup.py). Will see the results.
 
 
     
