@@ -54,6 +54,10 @@ Check the notebook [play](play.ipynb)
     - wandb dashboard has been configured. you can check it from [here](https://wandb.ai/hakanonal/mastermind)
     - Unfourtunatelly avarage win is very close to zero. Here is the [run](https://wandb.ai/hakanonal/mastermind/runs/1byxxyuq) Since the number of avaible states and avaible action space very large. policy file is rediculasly large and memory consumption is mindbuggling. in 1000 episodes it is resanablly fast but it is not enough for training. So when we increase the episode number q-table gets very large. The program tries to memorize all posisbilites and simply it is not enugh area to memorize all posisbilies. In this circumtances we need to convert this into NN. 
 
+- Before moving into NN, I want to make this code a playable game for everybody. So I am again trying to host the code on colab so that everybody can run the code without installing any python lib on thier local environment.
+    - I have check [this](https://www.programiz.com/python-programming/package) article. There is a __init__.py in every module. What is that?
+    - [This](https://packaging.python.org/tutorials/packaging-projects/) article explains the pip packaging procedure fully.
+
 
     
     
