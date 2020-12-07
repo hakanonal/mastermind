@@ -2,6 +2,10 @@
 
 This project idea has brought to my attention by my cousin [Onur](https://www.linkedin.com/in/onur-eren-449a9913/). So here we are. 
 
+## How To Play
+
+Check the notebook [play](play.ipynb)
+
 ## Journal
 
 #### 04.12.2020
