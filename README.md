@@ -20,3 +20,16 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
     - add user input functionallty.
 - So curentlly the code is not working. Work is in progess...
 - [This](https://bnbasilio.medium.com/mastermind-a-how-to-in-python-7b80ca9809ab) article has a good algorithm to find the feedback array check provideFeedback method in the article.
+
+#### 06.12.2020
+
+- Let's continue with the previous list. I want to create the game without ai right now. So I need
+    - code the game rules
+    - figure out metrics.
+    - print the board
+- While coding I find a way to host the game for pıblic. I will use [this](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) method. I'll check that later.
+- Could not work on this properlly...
+
+#### 07.12.2020
+
+- Will continue now...
