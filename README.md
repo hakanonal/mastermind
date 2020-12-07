@@ -36,3 +36,5 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
 - the environment class is almost finished. Curentlly in the status of debugging...
 - So the playable version of the game has completed. A user can play right now.
 - I will try to publish via colab.
+    - That did not work. Because the references to the environment and agent classes are not working properlly in colab.
+- So the game has completed. Now it is time to construct the agent class. Curentllt the games ai mode is not working properlly. At least iit is not tested well.
