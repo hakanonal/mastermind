@@ -13,7 +13,7 @@ class agent:
         self.learning_rate = config['learning_rate']
         self.config = config
         self.q_table = {}
-        self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))
+        self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
         
 
     def get_next_action(self, state):
@@ -44,7 +44,7 @@ class agent:
 
         old_state_prediction = ((1-self.learning_rate) * old_state_prediction) + (self.learning_rate * (reward + self.discount * np.amax(new_state_prediction)))
 
-        self.q_table[old_state][action] = old_state_prediction
+        self.getQ(old_state)[action] = old_state_prediction
         return old_state_prediction
 
     def update(self, actions_played, reward):
@@ -56,12 +56,14 @@ class agent:
             self.exploration_rate = self.exploration_rate_constant
 
     def save(self, file="policy"):
-        fw = open(file+'_'+self.config['digits']+'_'+self.config['peg_count'], 'wb')
+        filename = "%s_%d_%d"%(file,self.config['digits'],self.config['peg_count'])
+        fw = open(filename, 'wb')
         pickle.dump(self.q_table, fw)
         fw.close()
         wandb.save(file)
 
     def load(self, file="policy"):
-        fr = open(file+'_'+self.config['digits']+'_'+self.config['peg_count'], 'rb')
+        filename = "%s_%d_%d"%(file,self.config['digits'],self.config['peg_count'])
+        fr = open(filename, 'rb')
         self.q_table = pickle.load(fr)
         fr.close()  
