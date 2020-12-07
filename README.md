@@ -2,7 +2,6 @@
 
 This project idea has brought to my attention by my cousin [Onur](https://www.linkedin.com/in/onur-eren-449a9913/). So here we are. 
 
-
 ## Journal
 
 #### 04.12.2020
