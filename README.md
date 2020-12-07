@@ -2,9 +2,12 @@
 
 This project idea has brought to my attention by my cousin [Onur](https://www.linkedin.com/in/onur-eren-449a9913/). So here we are. 
 
-## How To Play
+## Some related links
 
-Check the notebook [play](play.ipynb)
+- Check the notebook to [play](play.ipynb)
+- [Project Board](https://github.com/hakanonal/mastermind/projects/1)
+- [Wandb dashboard](https://wandb.ai/hakanonal/mastermind)
+- [Hosted Game](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) !! **Not working yet**
 
 ## Journal
 
@@ -58,7 +61,7 @@ Check the notebook [play](play.ipynb)
     - I have check [this](https://www.programiz.com/python-programming/package) article. There is a __init__.py in every module. What is that?
     - [This](https://packaging.python.org/tutorials/packaging-projects/) article explains the pip packaging procedure fully.
     - Read about [this](https://docs.python.org/3/tutorial/modules.html#packages)
-    - Implemented the [setup.py](setup.py). Will see the results.
+    - Implemented the [setup.py](setup.py). Will see the results. Unfourtunatelly I can not make it. I am tired. Will look at it with a fresh mind.
 
 
     
