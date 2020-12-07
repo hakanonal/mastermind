@@ -22,8 +22,6 @@ parameters:
     value: 1000
   debug:
     value: 0 
-  print_state:
-    value: 0
   chances:
     value: 12
   digits:

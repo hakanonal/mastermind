@@ -14,12 +14,6 @@ class agent:
         self.q_table = {}
         
 
-    def play(self,old_state,action):
-        state = old_state
-        assert state[action] == ' '
-        state = state[:action] + self.sign + state[action+1:]
-        return state
-
     def get_next_action(self, state):
         if random.random() < self.exploration_rate: # Explore (gamble) or exploit (greedy)
             return self.random_action(state)
@@ -76,5 +70,4 @@ class agent:
         fr = open(file, 'rb')
         self.q_table = pickle.load(fr)
         fr.close()  
-
-
+        

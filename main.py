@@ -8,7 +8,6 @@ config = {
     'learning_rate':0.01,
     'episode':1000,
     'debug' : 0,
-    'print_state' : 0,
     'chances' : 12,
     'digits' : 4,
     'peg_count': 6,
