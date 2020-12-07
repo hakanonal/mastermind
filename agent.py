@@ -70,4 +70,3 @@ class agent:
         fr = open(file, 'rb')
         self.q_table = pickle.load(fr)
         fr.close()  
-        

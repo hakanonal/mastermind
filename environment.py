@@ -1,7 +1,7 @@
 from agent import agent
 import wandb
 import random
-import numpy as np
+from IPython.display import clear_output
 
 class environment:
 
@@ -23,22 +23,21 @@ class environment:
         self.initGame()
         self.metrics = {
             'tot_win' : 0,
+            'tot_loose' : 0,
             'tot_reward' : 0,
             'exploration_rate' : self.agent7.exploration_rate,
         }
 
     def initGame(self):
-        self.state = np.zeros((self.config['chances'],3))
+        self.state = [[0 for i in range(3)] for j in range(self.config['chances'])] #np.zeros((self.config['chances'],3))
         self.generated_code = self.generateCode()
-        if(self.config['debug']):
-            print("Generated Code: %s"%self.generated_code)
         self.actions_played = []
     
     def generateCode(self):
         generated_code = []
         for _ in range(1,self.config['digits']+1):
             generated_code.append(random.choice(self.config['peg_space']))
-        return ''.join(str(generated_code))
+        return int("".join([str(i) for i in generated_code]))
 
     def _validateUserInput(self,guessed_code):
         if(len(guessed_code) != self.config['digits']):
@@ -53,10 +52,13 @@ class environment:
     def askActionToPlay(self):
         while True:
             guessed_code = input("Guess (%s digits): " % self.config['digits'])
-            guessed_code = list(guessed_code)
+            if(not guessed_code.isnumeric()):
+                print("Only integers alllowed")
+                continue
+            guessed_code = [int(d) for d in list(guessed_code)]
             if(self._validateUserInput(guessed_code)):
                 break
-        return ''.join(str(guessed_code))
+        return int("".join([str(i) for i in guessed_code]))
         
 
     def start(self):
@@ -72,7 +74,7 @@ class environment:
 
                 new_state = self.play(chance,action_to_play)
 
-                self.debug1(episode,self.state,new_state,action_to_play)
+                #self.debug1(episode,self.state,new_state,action_to_play)
                 self.actions_played.append((self.state,new_state,action_to_play))
                 self.state = new_state
                 if(self.config['mode'] == 'user'):
@@ -86,10 +88,17 @@ class environment:
             if reward > 0:
                 self.metrics['tot_win'] += 1
                 self.metrics['avg_win'] = self.metrics['tot_win'] / episode
-                self.metrics['tot_reward'] += reward
-                self.metrics['avg_reward'] = self.metrics['tot_reward'] / episode
+            else:
+                self.metrics['tot_loose'] += 1
+                self.metrics['avg_loose'] = self.metrics['tot_loose'] / episode
+            self.metrics['tot_reward'] += reward
+            self.metrics['avg_reward'] = self.metrics['tot_reward'] / episode
             if(self.config['mode'] == 'ai'):
                 self.agent7.update(self.actions_played,reward)
+            if(self.config['mode'] == 'user'):                
+                self.printState(self.state)
+                print(self.metrics)
+                print("Generated code was: %0*d"%(self.config['digits'],self.generated_code))
 
             self.metrics['exploration_rate'] = self.agent7.exploration_rate
             wandb.log(self.metrics,step=episode)
@@ -104,33 +113,34 @@ class environment:
     def provideFeedback(self, guessToCopy, codeToCopy):
         red = 0
         white = 0
-        code = list(codeToCopy)
-        guess = list(guessToCopy)
+        code = [int(i) for i in str(codeToCopy)]
+        guess = [int(i) for i in str(guessToCopy)]
         for i in range(0, self.config['digits']):
             if guess[i] == code[i]:
                 code[i] = '-'
                 guess[i] = ''
-                red =+ 1
+                red = red + 1
         for i in range(0, self.config['digits']):
             if guess[i] in code:
                 code[code.index(guess[i])] = '-'
                 guess[i] = ''
-                white =+ 1
+                white = white + 1
         return red,white
             
     def printState(self,state):
+        clear_output(wait=True)
         for i in range(self.config['chances']):
-            print("| %s | %s+%s",(state[i,2],state[i,0],state[i,1]))
+            print("| %d+%d | %0*d |"%(state[i][0],state[i][1],self.config['digits'],state[i][2]))
+        if(self.config['debug']):
+            print("| --- | %0*d"%(self.config['digits'],self.generated_code))
 
     def isEnded(self,state):
         for i in range(self.config['chances']):
-            if(state[i,0] == self.config['digit']):
+            if(state[i][0] == self.config['digits']):
                 return self.config['chances']-i
-            if(state[i,2] == 0):
-                break
-        if(i+1==self.config['chances']):
-            return -10
-        return None
+            if(state[i][2] == 0):
+                return None
+        return -10
         
     def save(self):
         self.agent7.save()
