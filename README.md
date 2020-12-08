@@ -7,7 +7,7 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
 - [Project Board](https://github.com/hakanonal/mastermind/projects/1) !! Project is not finished yet. Check progress from the board.
 - [Wandb dashboard](https://wandb.ai/hakanonal/mastermind) !! You can watch the training progress from this dashboard.
 - [Hosted Game](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) !! **Not working yet**
-- [My Journal](https://github.com/hakanonal/mastermind/wiki/Journal) !! I write my trials, errors and achivements in this journal.
+- [My Journal](docs/journal.md) !! I write my trials, errors and achivements in this journal.
 
 ## How to play
 
