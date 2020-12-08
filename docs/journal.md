@@ -65,7 +65,7 @@
             - isEnded method
             - play method
         - Maybe I can convert these into an  API that initiates a game and updates the stuture. That would be good baseline for the following future [card](https://github.com/hakanonal/mastermind/projects/1#card-50796246)
-        - I am considering to create seperate reposotory, becasue it will be easier to deploy to live. Ot is it?
+        - I am considering to create seperate reposotory for the front-end, becasue it will be easier to deploy to live. Or is it?
             - [This](https://blog.logrocket.com/build-deploy-vue-js-app-github-pages/) article is very helpful. It kinf of explains and also provides and automated node.js script file. But how the github pages work? I have very well understood how github pages are working. I hacve even created a test vue default project and deployed to [here](https://hakanonal.github.io/my-first-vue/dist/#/). the [repo](https://github.com/hakanonal/my-first-vue). To sum up:
                 - Create the vue.config.js file like [this](https://github.com/hakanonal/my-first-vue/blob/master/vue.config.js)
                 - dist folder should not be ignored by git.
@@ -77,13 +77,14 @@
             - Maybe [this](https://palletsprojects.com/p/flask/) official pages should be read. Alright [this](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application) page is a little bit more straightforward.
     - Ok It is all set let's code. I will create api.py that creates the environment and exposes to the flask API. 
         - I neeeded to re arrange the validateUserInout method so that it can be exposed. It was specific to console app.
-        - Well I think I did a very convinient way to expose the game as API. I a exited to use it in vue.
+        - Well I think I did a very convinient way to expose the game as API. I am exited to use it in vue.
+        - However I do not know how to deploy this API to where. I'll do that later better to note it to project [board](https://github.com/hakanonal/mastermind/projects/1).
             
 
 - By the way this packaging system is not completed yet and it is bugging me since vscode continouslly lints errors even though the code is perfectlly working. I want to look this topic today also.
     - So I have chance to look this topic. And I think I have solved it The linting problem was because of vscode settings. And solved by following [this](https://stackoverflow.com/questions/1899436/pylint-unable-to-import-error-how-to-set-pythonpath) article.
     - I have also moved the environment and agent clases into ai module.
 
-- Yeah I have also managed to make work the colab hosted notebook work. So By this way peaople does not have to install python environment on thier macihne to play.
+- Yeah I have also managed to make work the colab hosted notebook work. So By this way peaople does not have to install python environment on their machine to play.
     
     
