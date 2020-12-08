@@ -77,8 +77,11 @@
             - Maybe [this](https://palletsprojects.com/p/flask/) official pages should be read. Alright [this](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application) page is a little bit more straightforward.
     - Ok It is all set let's code. I will create api.py that creates the environment and exposes to the flask API. 
         - I neeeded to re arrange the validateUserInout method so that it can be exposed. It was specific to console app.
+        - Well I think I did a very convinient way to expose the game as API. I a exited to use it in vue.
             
 
 - By the way this packaging system is not completed yet and it is bugging me since vscode continouslly lints errors even though the code is perfectlly working. I want to look this topic today also.
+    - So I have chance to look this topic. And I think I have solved it The linting problem was because of vscode settings. And solved by following [this](https://stackoverflow.com/questions/1899436/pylint-unable-to-import-error-how-to-set-pythonpath) article.
+    - I have also moved the environment and agent clases into ai module.
     
     

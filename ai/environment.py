@@ -1,4 +1,4 @@
-from agent import agent
+from .agent import agent
 import wandb
 import random
 from IPython.display import clear_output

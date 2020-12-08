@@ -1,4 +1,4 @@
-from environment import environment
+from ai.environment import environment
 import wandb
 
 def train():

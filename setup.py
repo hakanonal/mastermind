@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mastermind",
+    name="mastermind-hakanonal",
     version="0.0.1",
     author="Hakan Onal",
     author_email="hakan.onal@yahoo.com",

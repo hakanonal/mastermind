@@ -1,5 +1,5 @@
 from flask import Flask
-from environment import environment
+from ai.environment import environment
 
 app = Flask(__name__)
 

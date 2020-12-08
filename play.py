@@ -1,4 +1,4 @@
-from environment import environment
+from ai.environment import environment
 
 config = {
     'discount': 0.95,
