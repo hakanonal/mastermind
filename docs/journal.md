@@ -83,5 +83,7 @@
 - By the way this packaging system is not completed yet and it is bugging me since vscode continouslly lints errors even though the code is perfectlly working. I want to look this topic today also.
     - So I have chance to look this topic. And I think I have solved it The linting problem was because of vscode settings. And solved by following [this](https://stackoverflow.com/questions/1899436/pylint-unable-to-import-error-how-to-set-pythonpath) article.
     - I have also moved the environment and agent clases into ai module.
+
+- Yeah I have also managed to make work the colab hosted notebook work. So By this way peaople does not have to install python environment on thier macihne to play.
     
     
