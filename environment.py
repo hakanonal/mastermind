@@ -34,25 +34,23 @@ class environment:
             generated_code.append(random.choice(self.config['peg_space']))
         return int("".join([str(i) for i in generated_code]))
 
-    def _validateUserInput(self,guessed_code):
+    def validateUserInput(self,guessed_code):
+        if(not guessed_code.isnumeric()):
+            return False, "Only integers alllowed"
+        guessed_code = [int(d) for d in list(guessed_code)]
         if(len(guessed_code) != self.config['digits']):
-            print("Invalid digit count")
-            return False
+            return False, "Invalid digit count"
         for peg in guessed_code:
             if(peg not in self.config['peg_space']):
-                print("Invalid Code! Avaible optipons %s"%self.config['peg_space'])
-                return False
-        return True
+                return False, "Invalid Code! Avaible optipons %s"%self.config['peg_space']
+        return True, ""
     
     def askActionToPlay(self):
         while True:
             guessed_code = input("Guess (%s digits): " % self.config['digits'])
-            if(not guessed_code.isnumeric()):
-                print("Only integers alllowed")
-                continue
-            guessed_code = [int(d) for d in list(guessed_code)]
-            if(self._validateUserInput(guessed_code)):
-                break
+            result,message = self.validateUserInput(guessed_code)
+            if(not result): print(message) 
+            else: break
         return int("".join([str(i) for i in guessed_code]))
         
 
@@ -136,7 +134,15 @@ class environment:
             if(state[i][2] == 0):
                 return None
         return -10
-        
+
+    def chance(self,state=None):
+        state_to_check = state if state is not None else self.state
+        for i in range(self.config['chances']):
+            if(state_to_check[i][2] == 0):
+                return i+1
+        return i+1
+
+
     def save(self):
         self.agent7.save()
 

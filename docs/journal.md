@@ -53,5 +53,32 @@
 #### 08.12.2020
 
 - This journal location is bugging me. I did not like to write in wiki pages interface. So I am looking places to keep this journal. I am trying a seperate file. Inpired from [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-readmes)
+    - Yes! this is definatelly better.
+- Now where were we? Today I want to work on this [card](https://github.com/hakanonal/mastermind/projects/1#card-50796206) create hostable environment for users to play this game. 
+    - Curentlly I am intershipping in a software company. I am learning [vue](https://vuejs.org) framwork here. Maybe I can create a vue interface for the game.
+    - This reposotory is completed strutured for python environment. Should code it here or create another reposotry.
+    - I want to reuse the code that I have contructed here. However the game rues fairlly simple. Maybe I should completelly re-write in vue JS and only call the AI functionallty via API.
+        - When check the environment class, the whole environment is ment to be prepeared for AI to be trained. And it is designed as console app. When I check agent class, there is nothing to re-use there because it consists of training advancements where vue framework has nothing to do with that. 
+        - On the other hand environment class has:
+            - code generation
+            - state struture (which is key element of both apps)  
+            - isEnded method
+            - play method
+        - Maybe I can convert these into an  API that initiates a game and updates the stuture. That would be good baseline for the following future [card](https://github.com/hakanonal/mastermind/projects/1#card-50796246)
+        - I am considering to create seperate reposotory, becasue it will be easier to deploy to live. Ot is it?
+            - [This](https://blog.logrocket.com/build-deploy-vue-js-app-github-pages/) article is very helpful. It kinf of explains and also provides and automated node.js script file. But how the github pages work? I have very well understood how github pages are working. I hacve even created a test vue default project and deployed to [here](https://hakanonal.github.io/my-first-vue/dist/#/). the [repo](https://github.com/hakanonal/my-first-vue). To sum up:
+                - Create the vue.config.js file like [this](https://github.com/hakanonal/my-first-vue/blob/master/vue.config.js)
+                - dist folder should not be ignored by git.
+                - From github reposotory setting enable github pages for root. 
+                - Wait for couple of minutes.-
+        - So I will be creating seperate reposottry. Ok frontend is done how about back-end. How should I deploy it?
+            - Flask seems pretty easy to use according to [this](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask) article. I can create an api.py that accesses the environment. Hmmm that would be evan interesting because by this way there would be only one instance of state and everybody would be able to play the same game. How interesting :)
+            - [This](https://towardsdatascience.com/the-right-way-to-build-an-api-with-python-cd08ab285f8f) article is a little bit more sophisticated. It combines the methods via class and declares the class as resource. So the class has to be iin aligened with API. [This](https://gist.github.com/jamescalam/0b309d275999f9df26fa063602753f73) is the full script.
+            - Maybe [this](https://palletsprojects.com/p/flask/) official pages should be read. Alright [this](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application) page is a little bit more straightforward.
+    - Ok It is all set let's code. I will create api.py that creates the environment and exposes to the flask API. 
+        - I neeeded to re arrange the validateUserInout method so that it can be exposed. It was specific to console app.
+            
+
+- By the way this packaging system is not completed yet and it is bugging me since vscode continouslly lints errors even though the code is perfectlly working. I want to look this topic today also.
     
     

@@ -7,14 +7,18 @@ click==7.1.2
 configparser==5.0.1
 decorator==4.4.2
 docker-pycreds==0.4.0
+Flask==1.1.2
 gitdb==4.0.5
 GitPython==3.1.11
 idna==2.10
 ipython==7.19.0
 ipython-genutils==0.2.0
 isort==5.6.4
+itsdangerous==1.1.0
 jedi==0.17.2
+Jinja2==2.11.2
 lazy-object-proxy==1.4.3
+MarkupSafe==1.1.1
 mccabe==0.6.1
 numpy==1.19.4
 parso==0.7.1
@@ -43,4 +47,5 @@ urllib3==1.26.2
 wandb==0.10.12
 watchdog==0.10.4
 wcwidth==0.2.5
+Werkzeug==1.0.1
 wrapt==1.12.1
