@@ -90,4 +90,10 @@
     
 #### 09.12.2020
 
-- I have relized that my [hosted play notebook](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) does not explain the board view. It should also explain.what the numbers mean.
+- I have relized that my [hosted play notebook](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) does not explain the board view. It should also explain.what the numbers mean. Done!
+- Today I want to continue on [card](https://github.com/hakanonal/mastermind/projects/1#card-50796206) 
+    - Before moving into vue front-end app I want to quicklly investigate how am I going to deploy the back-end API. I want it free and simple. Like github pages.
+        - I think I found a good solution. pythonanywhere.com is service. It enables you a console. Will try to deploy my code there.
+        - Side note: I have learned that by providing the python version of to the virtualenv command, you can create different virtual environments with different python versions without using pyenv. [This](https://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv) helped. In my case pythonanywhere has installed all python version into the path /usr/bin/python3.7
+        - Ok first of all wandb gives some kind of a error. however the play.py script works fine. When I execute the api.py I get OSError: [Errno 98] Address already in use.
+        - This is going to take more time then I think. I will check this later. However there seems to be solutions. It seems a little bit complicated then I thoght the official [doc](https://flask.palletsprojects.com/en/1.1.x/tutorial/deploy/)
