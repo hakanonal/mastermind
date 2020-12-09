@@ -97,3 +97,6 @@
         - Side note: I have learned that by providing the python version of to the virtualenv command, you can create different virtual environments with different python versions without using pyenv. [This](https://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv) helped. In my case pythonanywhere has installed all python version into the path /usr/bin/python3.7
         - Ok first of all wandb gives some kind of a error. however the play.py script works fine. When I execute the api.py I get OSError: [Errno 98] Address already in use.
         - This is going to take more time then I think. I will check this later. However there seems to be solutions. It seems a little bit complicated then I thoght the official [doc](https://flask.palletsprojects.com/en/1.1.x/tutorial/deploy/)
+        - I can not get out of it I am stucked. [This](https://dev.to/thetrebelcc/how-to-run-a-flask-app-over-https-using-waitress-and-nginx-2020-235c) article is another useful one. For simple live flask serve. Well simple enough. I have modifed api.py and all we need a python environment on a internet connected server. I am leaving this topic now.
+    - Now vue app and new repositoruy yeah! I am exicted. but first I need to pee... :D
+        
