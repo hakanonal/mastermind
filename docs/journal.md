@@ -82,9 +82,12 @@
             
 
 - By the way this packaging system is not completed yet and it is bugging me since vscode continouslly lints errors even though the code is perfectlly working. I want to look this topic today also.
-    - So I have chance to look this topic. And I think I have solved it The linting problem was because of vscode settings. And solved by following [this](https://stackoverflow.com/questions/1899436/pylint-unable-to-import-error-how-to-set-pythonpath) article.
+    - So I have chance to look this topic. And I think I have solved it. The problem was about linting and solved changing the vscode settings. [This](https://stackoverflow.com/questions/1899436/pylint-unable-to-import-error-how-to-set-pythonpath) article helped.
     - I have also moved the environment and agent clases into ai module.
 
 - Yeah I have also managed to make work the colab hosted notebook work. So By this way peaople does not have to install python environment on their machine to play.
     
     
+#### 09.12.2020
+
+- I have relized that my [hosted play notebook](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) does not explain the board view. It should also explain.what the numbers mean.
