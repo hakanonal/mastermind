@@ -8,6 +8,7 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
 - [Wandb dashboard](https://wandb.ai/hakanonal/mastermind) !! You can watch the AI training progress from this dashboard.
 - [Hosted Game](https://colab.research.google.com/github/hakanonal/mastermind/blob/main/play.ipynb) !! To play the game via hosted colab console
 - [My Journal](docs/journal.md) !! I write my trials, errors and achivements in this journal.
+- [UI Repo](https://github.com/hakanonal/mastermind-ui) !! User Interface repo for this project !! **In Progress**
 
 ## How to play
 
