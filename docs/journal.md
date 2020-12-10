@@ -123,3 +123,5 @@
     - Now I am looking for swatches [API](https://saintplay.github.io/vue-swatches/api/props.html) ini detail.
         - Well not much to do here.
     - I will try to create the board. This front-end jon is painful. There is too much trial and error.
+    - I am going over [this](https://class-component.vuejs.org)  article. Hence It is important for me to understand the coding style.
+    - I still did not understand how Props computed methods getters and setters. In digit component I have color data. When it is changed I wantt the digit's value property to respective digit value. and vica-versa. So???. So many questions...
