@@ -98,5 +98,28 @@
         - Ok first of all wandb gives some kind of a error. however the play.py script works fine. When I execute the api.py I get OSError: [Errno 98] Address already in use.
         - This is going to take more time then I think. I will check this later. However there seems to be solutions. It seems a little bit complicated then I thoght the official [doc](https://flask.palletsprojects.com/en/1.1.x/tutorial/deploy/)
         - I can not get out of it I am stucked. [This](https://dev.to/thetrebelcc/how-to-run-a-flask-app-over-https-using-waitress-and-nginx-2020-235c) article is another useful one. For simple live flask serve. Well simple enough. I have modifed api.py and all we need a python environment on a internet connected server. I am leaving this topic now.
-    - Now vue app and new repositoruy yeah! I am exicted. but first I need to pee... :D
-        
+    - Now vue app and new repository yeah! I am exicted. but first I need to pee... :D
+        - New reposiitory has been installed. I have created a fresh vue app and deployed it to github pages. Now let's begin the hard part.
+        - [Repo](https://github.com/hakanonal/mastermind-ui)
+        - [Published Game](https://hakanonal.github.io/mastermind-ui/dist/#/)
+
+- Starting to code vue.
+    - Well how can I construct the UI. I need a decent design for that.
+    - I need a component that is like a button and will be selectable a color. Where each color is representted by number. Maybe I can find such component on the net.
+        - Well that was easy [this](https://saintplay.github.io/vue-swatches/examples/#simple) seems perfect. Maybe I can wrap this component with my component so that I can convert the color into digit.
+            - I am trying to wrap this component to my component called Digit. And I am having trouble to properlly work. I am stuck already. The build does not give any error but, browser console gives the "vue-swatches.umd.min.js?7f75:1 Uncaught (in promise) TypeError: Cannot read property '_c' of undefined". Well I give-up vue swatches does not seem to be working properlly. It has also no proper documentation. about this error.
+        - Lookin for another component. Well all other components are very complicated. This was pretty easy to use. Maybe it has problem with type script? Well there is no other option to use vue-swatches at this poiinit I need to figure out this error.
+        - It is not about typescript. I have created an empty project and tried to use the swatches there. I get the same error. I will try other versions of swatches.
+
+
+#### 10.12.2020
+
+- Continue on vue app. 
+    - I am suspicous about the versions of my environment. So I will try different versions of node vue and swatches.
+    - vue. And yes a fresh installation of vue 2. I have easilly managed to show the swatch there.
+    - Now how am I going to convert the my repo to vue 2 :/. Yeah! I have go over both my repo and my test vue2 empty project and copy paste adapted the code accordinglly. And the swatch did work. vue gives no error at all. However, the vscode linter gives some errors. I want to also that. Ok that was also easy I have closed vscode window and reopened the project it has gone. So we can continue where we have left off.
+    - I have come over bunch of problems which are almost imposible to list them all here. I have go thorugh them pretty quicklly.  However the problems where all around typescript related.
+    - Got "Avoid mutating a prop directly" error. I understand that putating a prop is not good idea. Instead mutate regular variable and you are ok.
+    - Now I am looking for swatches [API](https://saintplay.github.io/vue-swatches/api/props.html) ini detail.
+        - Well not much to do here.
+    - I will try to create the board. This front-end jon is painful. There is too much trial and error.
