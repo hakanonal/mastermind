@@ -142,3 +142,5 @@
         - Trying another [client](https://www.npmjs.com/package/node-fetch). I am very surprised this this is so complicated. I am getting the same CORS error.
         - I have go back to axios cors solutions read [this](https://stackoverflow.com/questions/50949594/axios-having-cors-issue)
         - I go back to server side again. found [this](https://flask-cors.readthedocs.io/en/latest/) flask cors. YES!! this solved it.
+    - Ok since I think I have a missing reout in my API. I just need a response for the current state no action.
+        - Perfect now API call core is also ready. And It was painful.

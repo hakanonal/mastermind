@@ -31,6 +31,11 @@ def response():
         'generated_code' : e.generated_code,
         'chance' : e.chance()
     }
+
+@app.route('/', methods=['GET'])
+def get():
+    return response(),200    
+
 @app.route('/reset', methods=['GET'])
 def reset():
     e.initGame()
