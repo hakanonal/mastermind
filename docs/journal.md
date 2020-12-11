@@ -125,3 +125,11 @@
     - I will try to create the board. This front-end jon is painful. There is too much trial and error.
     - I am going over [this](https://class-component.vuejs.org)  article. Hence It is important for me to understand the coding style.
     - I still did not understand how Props computed methods getters and setters. In digit component I have color data. When it is changed I wantt the digit's value property to respective digit value. and vica-versa. So???. So many questions...
+
+#### 11.12.2020
+
+- I was mainlly working on my internee job. So I will have limited tiime to work today. Will continue on vue.
+    - Finally after many trial and errors. I have managed to at least construct the board. 
+        - The paramatization bedazzled me a lot. 
+        - Also typescript errors is enourmouslly high. It even gives errors for spaces and so...
+        - Note that during this process I did more than 10 google search for different little errors...
