@@ -133,3 +133,12 @@
         - The paramatization bedazzled me a lot. 
         - Also typescript errors is enourmouslly high. It even gives errors for spaces and so...
         - Note that during this process I did more than 10 google search for different little errors...
+    - I have checked how to call API. [This](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html) helped. So I have installed axios
+    - I have bumped into CORS error in console I think I need to adjust API server to fix this. 
+        - I find [this](https://github.com/may-day/wsgicors) but I did not understand. 
+        - Since the postman get send sucesfully api calls I am lookinig for aixon right now.
+        - I will try clients to call API this should not be that much painfull.
+        - I am trying [fetch](https://www.npmjs.com/package/fetch)
+        - Trying another [client](https://www.npmjs.com/package/node-fetch). I am very surprised this this is so complicated. I am getting the same CORS error.
+        - I have go back to axios cors solutions read [this](https://stackoverflow.com/questions/50949594/axios-having-cors-issue)
+        - I go back to server side again. found [this](https://flask-cors.readthedocs.io/en/latest/) flask cors. YES!! this solved it.
