@@ -5,7 +5,7 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-ENV PORT 5000
+RUN useradd -m myuser
+USER myuser
 
-# 5
 CMD exec python api.py

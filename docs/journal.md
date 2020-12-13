@@ -164,4 +164,19 @@
         - I am trying to deploy my API to Firebase as described [here](https://medium.com/firebase-developers/hosting-flask-servers-on-firebase-from-scratch-c97cfb204579)
         - It seems to complicated for me now. I decided to dockerize the back-end.
         - I bumped into [this](https://medium.com/@justkrup/deploy-a-docker-container-free-on-heroku-5c803d2fdeb1). I decided to open up an account on [heroku](https://www.heroku.com). We'll see what will happen there...
-        - 
+        - Alright it seems pretty straight forward. It is very well documented. And for the scale of my app it is going to be free hopefully.
+        - I need to install Heroku CLI on my computer, so I am trying to the that with my limited internet connection. :/
+            - All my god it requires, xcode-select. And it takes forever to install...
+            - Instead of installing via homebrew I will install the package right away. It is downloading much more faster. Yes I have installed heroku CLI
+        - Now trying to deploy via docker image registry using the heroku CLI according to the documents.
+            - I am very exciting it seems very promising. "heroku container:push mastermind_api -a hakanonal-mastermind" I used This command, which I can send any pre-built image in my local to -a parametirezed heroku app that is created from the console. 
+            - [This](https://dashboard.heroku.com/apps/hakanonal-mastermind/deploy/heroku-container) is the documentation to deploy via heroku container method. 
+            - Well it seems to deploy however it is not responding. I think it is about the exposing different port.
+                - [This](https://stackoverflow.com/questions/44548074/how-do-i-expose-ports-on-heroku-with-a-dockerfile) may be the answer We'll see...
+                - [This](https://github.com/heroku/alpinehelloworld/blob/master/Dockerfile) ,s an example Dockerfile.
+                - PORT does not seems to be the problem though. They called dyno and it is not running right now. Looking ways to make it run.
+                - The dyno does not seem to be running that's why it is not servicing. That's my assumption though.
+                - I am suspicous that since it is a free plan it does not prioritize to start.
+        - I am started to look other hosting services. Heroku was seems to fine but I did not get the final reusult. Looking [this](https://www.whoishostingthis.com/compare/docker/) doc
+        - Ok I am back go google cloud. I agoing over the panel of google kubernetes. It says first cluster is free. We'll see...
+            - So it was very convinient for kubernetes to pull the Dockerfile from github.
