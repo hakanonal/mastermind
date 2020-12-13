@@ -144,3 +144,16 @@
         - I go back to server side again. found [this](https://flask-cors.readthedocs.io/en/latest/) flask cors. YES!! this solved it.
     - Ok since I think I have a missing reout in my API. I just need a response for the current state no action.
         - Perfect now API call core is also ready. And It was painful.
+
+    #### 13.12.2020
+
+    - Vue app continue. 
+        - Finally the fun part begins. Just use what you have constructed so far. yeah!..
+        - Well it is goıing well. I have installed ant-design vue using [this](https://antdv.com/docs/vue/getting-started/) page
+        - I am trying to add a restart button at the top. Using [this](https://antdv.com/components/button/) reference
+        - So I still have problem when updating the state. In the digit component I get the value and set the valuelocal computed porpoerty when mounted. However It should always watch the porperty value.
+        - I have choose some colors from [here](https://www.usability.gov/how-to-and-tools/methods/color-basics.html)
+        - Before moving to taking the user feedback and moving to the up of component tree I will also implement the disablity of the chances.
+        - Yeap I think we are ready move up now.
+        - YEAH!!! it is working finally we got figure it out.
+        - Now I need to paramitize the live environment parameters.
