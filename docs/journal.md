@@ -157,3 +157,11 @@
         - Yeap I think we are ready move up now.
         - YEAH!!! it is working finally we got figure it out.
         - Now I need to paramitize the live environment parameters.
+            - I have tried [this](https://stackoverflow.com/questions/50828904/using-environment-variables-with-vue-js) article however could not make work yet. And it worked.
+        - I also want to show an error message if there is an API access problem.
+        - I also need to compare the states before sending played code. Since the API serves a single game, multiple players may overwrite thier actions.
+    - Deployment...
+        - I am trying to deploy my API to Firebase as described [here](https://medium.com/firebase-developers/hosting-flask-servers-on-firebase-from-scratch-c97cfb204579)
+        - It seems to complicated for me now. I decided to dockerize the back-end.
+        - I bumped into [this](https://medium.com/@justkrup/deploy-a-docker-container-free-on-heroku-5c803d2fdeb1). I decided to open up an account on [heroku](https://www.heroku.com). We'll see what will happen there...
+        - 
