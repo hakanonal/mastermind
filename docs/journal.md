@@ -195,4 +195,4 @@
         - It looks like I need to modify my python script to do that. [here](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
             - waitress does not seem to use properlly ssl. [here](https://stackoverflow.com/questions/19462959/i-can-not-connect-to-https-waitress-wsgi-server)
             - well At least I have activated self signed certificate. However the browser still gives error and won't access the API.
-            - 
+            - I am so tired. In the end I could not managed to do that. I am going to continue for antoher time.
