@@ -61,9 +61,9 @@ def not_found(_):
     return response(),404
 
 if __name__ == "__main__":
-    #app.run(host='0.0.0.0')
-    #We now use this syntax to server our app. 
     port = os.environ.get('PORT')
     if(port is None):
         port = 5000
-    serve(app, host='0.0.0.0', port=port)
+
+    app.run(host='0.0.0.0',port=port,ssl_context='adhoc')
+    #serve(app, host='0.0.0.0', port=port)

@@ -180,3 +180,18 @@
         - I am started to look other hosting services. Heroku was seems to fine but I did not get the final reusult. Looking [this](https://www.whoishostingthis.com/compare/docker/) doc
         - Ok I am back go google cloud. I agoing over the panel of google kubernetes. It says first cluster is free. We'll see...
             - So it was very convinient for kubernetes to pull the Dockerfile from github.
+            - YEEES! It worked. It is very convinient. you do not have to install anything. It can directlly depoloy from github. So vala!
+            - [Here](http://35.197.194.250:5000) This address may change in the feature.
+        - Now I am going to configure this to the vue app and we will be on-line.
+            - hmmm now I get mixed content error on the browser. I need to serve the API from secure layer.
+                - [These](https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs#console) are very painful
+                - [this](https://estl.tech/configuring-https-to-a-web-service-on-google-kubernetes-engine-2d71849520d) is proper explanation but it is damn hard.
+        - Is there a way to deploy the vue app on a non secure place?
+            - github pages does not allow me to do that.
+        - Come on IBM cloud does not accept my credit card. Altogh it is valid.
+        - Let's move on AWS...
+        - Tried firebase which was easy by following [this](https://cli.vuejs.org/guide/deployment.html#firebase) article. However it is also secure and can not be disabled.
+        - Ok I am back to digital ocean. I could easly deploy my docker on a ddroplet. And now looking wys to install SLL.
+        - It looks like I need to modify my python script to do that. [here](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
+            - waitress does not seem to use properlly ssl. [here](https://stackoverflow.com/questions/19462959/i-can-not-connect-to-https-waitress-wsgi-server)
+            - 
