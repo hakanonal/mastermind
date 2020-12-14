@@ -39,7 +39,7 @@
         - Ok I am moving pretty fast I am almost there. Now time to time agent guesses 0 because there is 0 in the q_table. The greedy method also considers the actions that is below 1111. Now what? 
             - In thory if I explore all the time I will not bump this error. and it is working. So the greedy method has to be fixed.
     - How to fix greedy method.
-        - Ok! actually I did very similar solution on my tic-tac-toe project. I can iniitially assign very negative number for the items that are not in action space. An it is completed.
+        - Ok! actually I did very similar solution on my [tic-tac-toe](https://github.com/hakanonal/tic-tac-toe) project. I can iniitially assign very negative number for the items that are not in action space. An it is completed.
 - We got the first result: 
     - wandb dashboard has been configured. you can check it from [here](https://wandb.ai/hakanonal/mastermind)
     - Unfourtunatelly avarage win is very close to zero. Here is the [run](https://wandb.ai/hakanonal/mastermind/runs/1byxxyuq) Since the number of avaible states and avaible action space very large. policy file is rediculasly large and memory consumption is mindbuggling. in 1000 episodes it is resanablly fast but it is not enough for training. So when we increase the episode number q-table gets very large. The program tries to memorize all posisbilites and simply it is not enugh area to memorize all posisbilies. In this circumtances we need to convert this into NN. 
@@ -210,4 +210,6 @@
 - Now that is weird: the disabled class has the opocity of %1 in the browser. However, I had coded it as %30 how on earth it has built to %1.
     - I will try on a fresh browser. Nope!
     - I will rebuild and re-deploy. I did re-deploy but git found no difference.
-    - And [this](https://github.com/hakanonal/mastermind/projects/1#card-50796206) card seems to be completed. Very big achivement for me. Many Thanks!
+    - I could not figure out the problem and temprarolly manually modifed the index.html inside the dist folder. I know I should not do that but I do not want spent more time on this.
+
+- And [this](https://github.com/hakanonal/mastermind/projects/1#card-50796206) card seems to be completed. Very big achivement for me. Many Thanks!
