@@ -213,3 +213,11 @@
     - I could not figure out the problem and temprarolly manually modifed the index.html inside the dist folder. I know I should not do that but I do not want spent more time on this.
 
 - And [this](https://github.com/hakanonal/mastermind/projects/1#card-50796206) card seems to be completed. Very big achivement for me. Many Thanks!
+
+
+- So changing gears here. Will continue on working [this](https://github.com/hakanonal/mastermind/projects/1#card-50796280) card
+    - So now I am remembering my [tavla](https://github.com/hakanonal/backgammon) project's agent class to implement NN here.
+    - Ok I have copied and modifed the neceesarry code. But I need to figure out the shape of the NN.
+    - A generic way is 2-d array of state for input and a single node regressor. Would be useful for all game configs. The input shape would be game's chances parameter depandent but at least there will be no change when the digit has changed.
+    - Ok When I re-think this game has not have finate set of actions to take. The NN has to guess next code according to the state. So How could implement the rewards in to this NN? very big question. Since my previous projects was spitting out the reward for the finiate output nodes of action. I will not be able to implement this here...
+    - Well in here it tells brieflly some applied algorithm in the past. Nobody applied NN for this problem. Where when I re-thinik it would be incorrect to apply. However I need to understand better these cases. Curentlly I have opned-up another branch for this development.
