@@ -15,7 +15,7 @@ This project idea has brought to my attention by my cousin [Onur](https://www.li
 
 ### First Option
 
-Click [here](https://hakanonal.github.io/mastermind-ui/dist) to play via Vue App.
+Click [here](https://hakanonal.github.io/mastermind-ui/dist) to play via Vue App. **In Progress**
 
 ### Second Option
 
