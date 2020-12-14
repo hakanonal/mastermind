@@ -145,55 +145,69 @@
     - Ok since I think I have a missing reout in my API. I just need a response for the current state no action.
         - Perfect now API call core is also ready. And It was painful.
 
-    #### 13.12.2020
+#### 13.12.2020
 
-    - Vue app continue. 
-        - Finally the fun part begins. Just use what you have constructed so far. yeah!..
-        - Well it is goıing well. I have installed ant-design vue using [this](https://antdv.com/docs/vue/getting-started/) page
-        - I am trying to add a restart button at the top. Using [this](https://antdv.com/components/button/) reference
-        - So I still have problem when updating the state. In the digit component I get the value and set the valuelocal computed porpoerty when mounted. However It should always watch the porperty value.
-        - I have choose some colors from [here](https://www.usability.gov/how-to-and-tools/methods/color-basics.html)
-        - Before moving to taking the user feedback and moving to the up of component tree I will also implement the disablity of the chances.
-        - Yeap I think we are ready move up now.
-        - YEAH!!! it is working finally we got figure it out.
-        - Now I need to paramitize the live environment parameters.
-            - I have tried [this](https://stackoverflow.com/questions/50828904/using-environment-variables-with-vue-js) article however could not make work yet. And it worked.
-        - I also want to show an error message if there is an API access problem.
-        - I also need to compare the states before sending played code. Since the API serves a single game, multiple players may overwrite thier actions.
-    - Deployment...
-        - I am trying to deploy my API to Firebase as described [here](https://medium.com/firebase-developers/hosting-flask-servers-on-firebase-from-scratch-c97cfb204579)
-        - It seems to complicated for me now. I decided to dockerize the back-end.
-        - I bumped into [this](https://medium.com/@justkrup/deploy-a-docker-container-free-on-heroku-5c803d2fdeb1). I decided to open up an account on [heroku](https://www.heroku.com). We'll see what will happen there...
-        - Alright it seems pretty straight forward. It is very well documented. And for the scale of my app it is going to be free hopefully.
-        - I need to install Heroku CLI on my computer, so I am trying to the that with my limited internet connection. :/
-            - All my god it requires, xcode-select. And it takes forever to install...
-            - Instead of installing via homebrew I will install the package right away. It is downloading much more faster. Yes I have installed heroku CLI
-        - Now trying to deploy via docker image registry using the heroku CLI according to the documents.
-            - I am very exciting it seems very promising. "heroku container:push mastermind_api -a hakanonal-mastermind" I used This command, which I can send any pre-built image in my local to -a parametirezed heroku app that is created from the console. 
-            - [This](https://dashboard.heroku.com/apps/hakanonal-mastermind/deploy/heroku-container) is the documentation to deploy via heroku container method. 
-            - Well it seems to deploy however it is not responding. I think it is about the exposing different port.
-                - [This](https://stackoverflow.com/questions/44548074/how-do-i-expose-ports-on-heroku-with-a-dockerfile) may be the answer We'll see...
-                - [This](https://github.com/heroku/alpinehelloworld/blob/master/Dockerfile) ,s an example Dockerfile.
-                - PORT does not seems to be the problem though. They called dyno and it is not running right now. Looking ways to make it run.
-                - The dyno does not seem to be running that's why it is not servicing. That's my assumption though.
-                - I am suspicous that since it is a free plan it does not prioritize to start.
-        - I am started to look other hosting services. Heroku was seems to fine but I did not get the final reusult. Looking [this](https://www.whoishostingthis.com/compare/docker/) doc
-        - Ok I am back go google cloud. I agoing over the panel of google kubernetes. It says first cluster is free. We'll see...
-            - So it was very convinient for kubernetes to pull the Dockerfile from github.
-            - YEEES! It worked. It is very convinient. you do not have to install anything. It can directlly depoloy from github. So vala!
-            - [Here](http://35.197.194.250:5000) This address may change in the feature.
-        - Now I am going to configure this to the vue app and we will be on-line.
-            - hmmm now I get mixed content error on the browser. I need to serve the API from secure layer.
-                - [These](https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs#console) are very painful
-                - [this](https://estl.tech/configuring-https-to-a-web-service-on-google-kubernetes-engine-2d71849520d) is proper explanation but it is damn hard.
-        - Is there a way to deploy the vue app on a non secure place?
-            - github pages does not allow me to do that.
-        - Come on IBM cloud does not accept my credit card. Altogh it is valid.
-        - Let's move on AWS...
-        - Tried firebase which was easy by following [this](https://cli.vuejs.org/guide/deployment.html#firebase) article. However it is also secure and can not be disabled.
-        - Ok I am back to digital ocean. I could easly deploy my docker on a ddroplet. And now looking wys to install SLL.
-        - It looks like I need to modify my python script to do that. [here](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
-            - waitress does not seem to use properlly ssl. [here](https://stackoverflow.com/questions/19462959/i-can-not-connect-to-https-waitress-wsgi-server)
-            - well At least I have activated self signed certificate. However the browser still gives error and won't access the API.
-            - [This](https://mherman.org/blog/dockerizing-a-vue-app/) article was helpful for Dockerizing the vue app.
-            - I am so tired. In the end I could not managed to do that. I am going to continue for antoher time.
+- Vue app continue. 
+    - Finally the fun part begins. Just use what you have constructed so far. yeah!..
+    - Well it is goıing well. I have installed ant-design vue using [this](https://antdv.com/docs/vue/getting-started/) page
+    - I am trying to add a restart button at the top. Using [this](https://antdv.com/components/button/) reference
+    - So I still have problem when updating the state. In the digit component I get the value and set the valuelocal computed porpoerty when mounted. However It should always watch the porperty value.
+    - I have choose some colors from [here](https://www.usability.gov/how-to-and-tools/methods/color-basics.html)
+    - Before moving to taking the user feedback and moving to the up of component tree I will also implement the disablity of the chances.
+    - Yeap I think we are ready move up now.
+    - YEAH!!! it is working finally we got figure it out.
+    - Now I need to paramitize the live environment parameters.
+        - I have tried [this](https://stackoverflow.com/questions/50828904/using-environment-variables-with-vue-js) article however could not make work yet. And it worked.
+    - I also want to show an error message if there is an API access problem.
+    - I also need to compare the states before sending played code. Since the API serves a single game, multiple players may overwrite thier actions.
+- Deployment...
+    - I am trying to deploy my API to Firebase as described [here](https://medium.com/firebase-developers/hosting-flask-servers-on-firebase-from-scratch-c97cfb204579)
+    - It seems so complicated for me now. I decided to dockerize the back-end.
+    - I bumped into [this](https://medium.com/@justkrup/deploy-a-docker-container-free-on-heroku-5c803d2fdeb1). I decided to open up an account on [heroku](https://www.heroku.com). We'll see what will happen there...
+    - Alright it seems pretty straight forward. It is very well documented. And for the scale of my app it is going to be free hopefully.
+    - I need to install Heroku CLI on my computer, so I am trying to the that with my limited internet connection. :/
+        - All my god it requires, xcode-select. And it takes forever to install...
+        - Instead of installing via homebrew I will install the package right away. It is downloading much more faster. Yes I have installed heroku CLI
+    - Now trying to deploy via docker image registry using the heroku CLI according to the documents.
+        - I am very exciting it seems very promising. "heroku container:push mastermind_api -a hakanonal-mastermind" I used This command, which I can send any pre-built image in my local to -a parametirezed heroku app that is created from the console. 
+        - [This](https://dashboard.heroku.com/apps/hakanonal-mastermind/deploy/heroku-container) is the documentation to deploy via heroku container method. 
+        - Well it seems to deploy however it is not responding. I think it is about the exposing different port.
+            - [This](https://stackoverflow.com/questions/44548074/how-do-i-expose-ports-on-heroku-with-a-dockerfile) may be the answer We'll see...
+            - [This](https://github.com/heroku/alpinehelloworld/blob/master/Dockerfile) ,s an example Dockerfile.
+            - PORT does not seems to be the problem though. They called dyno and it is not running right now. Looking ways to make it run.
+            - The dyno does not seem to be running that's why it is not servicing. That's my assumption though.
+            - I am suspicous that since it is a free plan it does not prioritize to start.
+    - I am started to look other hosting services. Heroku was seems to fine but I did not get the final reusult. Looking [this](https://www.whoishostingthis.com/compare/docker/) doc
+    - Ok I am back go google cloud. I agoing over the panel of google kubernetes. It says first cluster is free. We'll see...
+        - So it was very convinient for kubernetes to pull the Dockerfile from github.
+        - YEEES! It worked. It is very convinient. you do not have to install anything. It can directlly depoloy from github. So vala!
+        - [Here](http://35.197.194.250:5000) This address may change in the feature.
+    - Now I am going to configure this to the vue app and we will be on-line.
+        - hmmm now I get mixed content error on the browser. I need to serve the API from secure layer.
+            - [These](https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs#console) are very painful
+            - [this](https://estl.tech/configuring-https-to-a-web-service-on-google-kubernetes-engine-2d71849520d) is proper explanation but it is damn hard.
+    - Is there a way to deploy the vue app on a non secure place?
+        - github pages does not allow me to do that.
+    - Come on IBM cloud does not accept my credit card. Altogh it is valid. Pass...
+    - Let's move on AWS... Nope!
+    - Tried firebase which was easy by following [this](https://cli.vuejs.org/guide/deployment.html#firebase) article. However it is also secure and can not be disabled.
+    - Ok I am back to digital ocean. I could easly deploy my docker on a droplet. And now looking ways to install SLL.
+    - It looks like I need to modify my python script to do that. [here](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
+        - waitress does not seem to use properlly ssl. [here](https://stackoverflow.com/questions/19462959/i-can-not-connect-to-https-waitress-wsgi-server)
+        - well At least I have activated self signed certificate. However the browser still gives error and won't access the API.
+        - [This](https://mherman.org/blog/dockerizing-a-vue-app/) article was helpful for Dockerizing the vue app.
+        - I am so tired. In the end I could not managed to do that. I am going to continue for antoher time.
+
+#### 14.12.2020
+
+- Continue on deployment on a fresh day...
+    - Well ok when I was reading [this](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https) article it tells about [this](https://letsencrypt.org/getting-started/) free service that gives SSL certificates. 
+    - You're kidding me!  I was just hanging arround pythonanywhere just changing some nobs. I have tried some different variations on WSGI config and valia. So it is totally free. I do not bealive...
+    - Finally it is working. 
+        - The [API](https://hakanonal.pythonanywhere.com)
+        - The [front-end](https://hakanonal.github.io/mastermind-ui/dist/#/)
+
+- Now that is weird: the disabled class has the opocity of %1 in the browser. However, I had coded it as %30 how on earth it has built to %1.
+    - I will try on a fresh browser. Nope!
+    - I will rebuild and re-deploy. I did re-deploy but git found no difference.
+    - And [this](https://github.com/hakanonal/mastermind/projects/1#card-50796206) card seems to be completed. Very big achivement for me. Many Thanks!
