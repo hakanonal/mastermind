@@ -231,3 +231,9 @@
         - Ok when I read a paragraph from that article, I have understand that it is not evaluating against the hidden code it is evaluating againts the the guesed code and removing the possible answers that thier feedbacks are not same as the guess.
     - So what I have understand is these two above solutions are the algorithms that is applied [here](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Worst_case:_Five-guess_algorithm)
     - I understand that there may be multiple different algothims that can be applied. I thinking of to create multiple types of agents so that I can compare them. NN may be one of them but I will not implement it yet. Since I am not sure how to implement a NN here. Even, it may be rediculis to implement NN here.
+    - How will I paramitize the agent though? I have opened a [card](https://github.com/hakanonal/mastermind/projects/1#card-51667464) for that
+    - Before paramitizing agent I wanted to finilize the input and output shape of the NN. Where input is 12(chances)x(1(red)+1(white)+1(played_code)) conv and output is just 1(). Where input should be complete state. and output is the prediction for next move.
+    - However I still do not know how to train against what? Should I spit out score and where? Maybe I can output 4(digits)*6(peg_count) that encodes the  all avaible next code scores...
+    - to find the best working code more quicklly. I have created an [experiement]() notebook.
+    - Good so as an output I have 4x6 array for each digit I have scrpore for each pegs. I can update the score for each digit??
+    - Wow! I think I have nailed it...

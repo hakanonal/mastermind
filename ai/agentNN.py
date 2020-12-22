@@ -1,9 +1,11 @@
 import numpy as np
 import random
-import pickle
+from os import path
 import wandb
+from keras.models import Sequential,load_model
+from keras.layers import Dense, Flatten, Conv1D, Reshape
 
-class agent:
+class agentNN:
 
     def __init__(self,config):
         self.discount = config['discount']
@@ -12,27 +14,24 @@ class agent:
         self.decay_factor = config['decay_factor']
         self.learning_rate = config['learning_rate']
         self.config = config
-        #self.q_table = {}
-        self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
-        self.min_action = int("".join([str(1) for i in range(self.config['digits'])]))
         
         wandb.config.update({'model_name':self._getModelFilename()})
         if(path.exists(self._getModelFilename())):
             self.model = load_model(self._getModelFilename())
         else:
             self.model = Sequential()
-            self.model.add(Dense(208,activation="relu", input_shape=(28,)))
-            self.model.add(Dense(104,activation="relu"))
-            self.model.add(Dense(52))
-            self.model.add(Reshape((2,26)))
-            self.model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
+            self.model.add(Conv1D(3, (2), padding='same', input_shape = (self.config['chances'], 3), activation = 'relu'))
+            self.model.add(Flatten())
+            self.model.add(Dense(24,activation="relu"))
+            self.model.add(Reshape((self.config['digits'],self.config['peg_count'])))
+            self.model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-    def _getModelFilename(self):
-        return "%s_%d_%d.h5"%(file,self.config['digits'],self.config['peg_count'])
+    def _getModelFilename(self, file="policy"):
+        return "%s_%d_%d_%d.h5"%(file,self.config['digits'],self.config['chances'],self.config['peg_count'])
 
     def save(self, file="policy"):
-        self.model.save(self._getModelFilename())
-        wandb.save(self._getModelFilename())
+        self.model.save(self._getModelFilename(file))
+        wandb.save(self._getModelFilename(file))
 
     def get_next_action(self, state):
         if random.random() < self.exploration_rate: # Explore (gamble) or exploit (greedy)
@@ -41,7 +40,11 @@ class agent:
             return self.greedy_action(state)
 
     def greedy_action(self, state):
-        return np.argmax(self.getQ(state))
+        prediction = self.getQ(state)
+        generated_code = [0 for i in range(self.config['digits'])]
+        for d in range(self.config['digits']):
+             generated_code[d] = np.argmax(prediction[0,d])+1
+        return int("".join([str(i) for i in generated_code]))
     
     def random_action(self):
         generated_code = []
@@ -49,37 +52,33 @@ class agent:
             generated_code.append(random.choice(self.config['peg_space']))
         return int("".join([str(i) for i in generated_code]))
 
-    #def getQ(self,state):
-    #    state_hash = str(state)
-    #    if state_hash not in self.q_table:
-    #        self.q_table[state_hash] = np.zeros(self.action_space_count,dtype=int)
-    #        for i in range(self.min_action):
-    #            self.q_table[state_hash][i] = -999999
-    #    return self.q_table[state_hash]
     def getQ(self,state):
         state_to_predict = np.expand_dims(state,0)
-        action_prediction = self.model.predict(state_to_predict)
-        return action_prediction[0]
+        prediction = self.model.predict(state_to_predict)
+        return prediction
 
 
     def train(self, old_state, new_state, action, reward):
         
-        old_state_prediction = self.getQ(old_state)[action]
+        action_as_list = [int(i) for i in str(action)]
+        new_reward = reward.copy()
+        
+        old_state_prediction = self.getQ(old_state)
         new_state_prediction = self.getQ(new_state)
 
-        old_state_prediction = ((1-self.learning_rate) * old_state_prediction) + (self.learning_rate * (reward + self.discount * np.amax(new_state_prediction)))
+        for (i,v) in enumerate(action_as_list):
+            new_reward[i] = old_state_prediction[0,i,v-1] = ((1-self.learning_rate) * old_state_prediction[0,i,v-1]) + (self.learning_rate * (reward[i] + self.discount * np.amax(new_state_prediction[0][i])))
 
-        #self.getQ(old_state)[action] = old_state_prediction
         x = np.expand_dims(old_state,0)
-        y = np.expand_dims(old_state_prediction,0)
-        self.model.fit(x,y,verbose=0)
+        self.model.fit(x,old_state_prediction,verbose=0)
 
-        return old_state_prediction
+        return new_reward
 
     def update(self, actions_played, reward):
+        reward_as_list = [reward for i in range(self.config['digits'])]
         for old_state,new_state,action in reversed(actions_played):
-            new_reward = self.train(old_state, new_state, action, reward)
-            reward = new_reward
+            new_reward = self.train(old_state, new_state, action, reward_as_list)
+            reward_as_list = new_reward
         self.exploration_rate *= self.decay_factor
         if self.exploration_rate < 0.01:
             self.exploration_rate = self.exploration_rate_constant
