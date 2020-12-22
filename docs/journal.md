@@ -237,3 +237,6 @@
     - to find the best working code more quicklly. I have created an [experiement]() notebook.
     - Good so as an output I have 4x6 array for each digit I have scrpore for each pegs. I can update the score for each digit??
     - Wow! I think I have nailed it...
+    - So first try I do not have any wins. I merged the nn branch and continue with main.
+    - I have increased. episode and see if there is going to be a win.
+- Documented the code layout in readme.

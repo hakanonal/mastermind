@@ -31,3 +31,15 @@ pip install -r requirements.txt
 ```
 python play.py
 ```
+
+## Code Layout
+
+- `api.py` - It defines the API that is being called by [vue GUI app](https://github.com/hakanonal/mastermind-ui). 
+- `experiment_of_nn.ipynb` - It is the temporary rapid development for the Neural Network agent.
+- `main.py` - It is the main python script to executte the agent training for a fixed defined hyper-parameters.
+- `play.ipynb` - It is the wraper to play the game in console via google colab environment.
+- `play.py` - It is the script to play the game in console locally.
+- `setup.py` - responsible for this repo packeging. 
+- `Docker*` - Reponsible to dockerize the API to fast deploy live environment
+- `sweep_example.yaml` - It is an example of [sweep](https://docs.wandb.com/sweeps) configuration.
+- `train.py` - It is the wrapper script to train the agent with not only single set of hyper-parameters but for defined [sweep](https://docs.wandb.com/sweeps), so that single script can executes multiple runs for different set of hyper-parameters.
