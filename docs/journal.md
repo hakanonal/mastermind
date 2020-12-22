@@ -239,4 +239,13 @@
     - Wow! I think I have nailed it...
     - So first try I do not have any wins. I merged the nn branch and continue with main.
     - I have increased. episode and see if there is going to be a win.
+
 - Documented the code layout in readme.
+
+- Stating a new [card](https://github.com/hakanonal/mastermind/projects/1#card-51670583) to fine tune the NN
+    - Well [this](https://wandb.ai/hakanonal/mastermind/runs/1jxd9i2k) run is just a little bit better performer than q-table version. However it is a lot slower of course. 
+    - Since the NN model is tiny. I can execute save every update.
+    - Can I implement wandb [resume](https://docs.wandb.com/library/resuming) functionaltyy? 
+        - Well I have implemented ther resume functionalty however the metrics are not in good shape. Since the program re-starts it does not remember the total and avarage win, loss and rewrard. It would be very convinient if I could log only mark of reward win and loose and other parameters would be calculated by wandb. So I could analyze them by runs easily.
+        - Or I can read the metrics from the run. Nope!
+        - Well it messes up all run logic so. I have discard my changes about this.

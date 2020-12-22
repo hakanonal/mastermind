@@ -15,7 +15,7 @@ class agent:
         self.q_table = {}
         self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
         self.min_action = int("".join([str(1) for i in range(self.config['digits'])]))
-        
+        wandb.config.update({'model_name':'q_table'})
 
     def get_next_action(self, state):
         if random.random() < self.exploration_rate: # Explore (gamble) or exploit (greedy)

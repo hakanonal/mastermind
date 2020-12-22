@@ -82,3 +82,4 @@ class agentNN:
         self.exploration_rate *= self.decay_factor
         if self.exploration_rate < 0.01:
             self.exploration_rate = self.exploration_rate_constant
+        self.save()
