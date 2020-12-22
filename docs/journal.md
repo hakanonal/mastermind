@@ -221,3 +221,13 @@
     - A generic way is 2-d array of state for input and a single node regressor. Would be useful for all game configs. The input shape would be game's chances parameter depandent but at least there will be no change when the digit has changed.
     - Ok When I re-think this game has not have finate set of actions to take. The NN has to guess next code according to the state. So How could implement the rewards in to this NN? very big question. Since my previous projects was spitting out the reward for the finiate output nodes of action. I will not be able to implement this here...
     - Well in here it tells brieflly some applied algorithm in the past. Nobody applied NN for this problem. Where when I re-thinik it would be incorrect to apply. However I need to understand better these cases. Curentlly I have opned-up another branch for this development.
+
+#### 22.12.2020
+
+- I am back on [this](https://github.com/hakanonal/mastermind/projects/1#card-50796280) card again.
+    - Reading about [this](https://github.com/wy/PyMastermind#game-ai). An example implementation of mastermind AI
+        - I am having hard time to understand the code. It creates all posible codes in an list. Then for each gıess it removes it from the list using the feedback. But I did not understand how it evaluate. Since it loops thorugh all posible answers and evaluateds them all. Which is redicualis, becuase by this method we give ai almost infinate chance to try.
+    - Started to read [this](https://stackoverflow.com/questions/1185634/how-to-solve-the-mastermind-guessing-game)
+        - Ok when I read a paragraph from that article, I have understand that it is not evaluating against the hidden code it is evaluating againts the the guesed code and removing the possible answers that thier feedbacks are not same as the guess.
+    - So what I have understand is these two above solutions are the algorithms that is applied [here](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Worst_case:_Five-guess_algorithm)
+    - I understand that there may be multiple different algothims that can be applied. I thinking of to create multiple types of agents so that I can compare them. NN may be one of them but I will not implement it yet. Since I am not sure how to implement a NN here. Even, it may be rediculis to implement NN here.
