@@ -249,3 +249,12 @@
         - Well I have implemented ther resume functionalty however the metrics are not in good shape. Since the program re-starts it does not remember the total and avarage win, loss and rewrard. It would be very convinient if I could log only mark of reward win and loose and other parameters would be calculated by wandb. So I could analyze them by runs easily.
         - Or I can read the metrics from the run. Nope!
         - Well it messes up all run logic so. I have discard my changes about this.
+
+- It is time to deploy it a server so that it can run un attended.
+    - Well I do not need to run this on a GPU enabled server.
+    - I have installed pyenv via the official github page. [here](https://github.com/pyenv/pyenv) and [here](https://github.com/pyenv/pyenv-installer)
+    - I have installed gcc via ```sudo apt-get install build-essential```
+    - Had to install dependecies first used [here](https://github.com/pyenv/pyenv/wiki/common-build-problems)
+    - Installed python 3.7.2 ```pyenv install 3.7.2```
+        - Takeing longer then expected...
+    - Created a virtual environment ```pyenv virtualenv 3.7.2 mastermind```
