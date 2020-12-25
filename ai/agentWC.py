@@ -34,8 +34,12 @@ class agentWC:
 
     def get_next_action(self, state):
         action = self.greedy_action(state)
-        self.environment.
-        return 
+        red,white = self.environment.provideFeedback(self.environment.hidden_code,action)
+        for i in self.action_space:
+            redi,whitei = self.environment.provideFeedback(action,i)
+            if red != redi or white != whitei:
+                self.action_space.remove(i)
+        return action
 
     def greedy_action(self, state):
         return self.action_space[0]
