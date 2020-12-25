@@ -3,10 +3,11 @@ import random
 import pickle
 import wandb
 
-class agent:
+class agentWC:
 
     def __init__(self,config,env):
         self.config = config
+        self.exploration_rate = self.config['exploration_rate']
         self.peg_set = set([str(i) for i in range(1,self.config['peg_count']+1)])
         self.all_digits_set = set([str(i) for i in range(10)])
         self.invalid_digit_set = self.all_digits_set-self.peg_set
@@ -20,12 +21,12 @@ class agent:
     def _initSet(self):
         self.action_space = set(range(self.minimum_code,self.maximum_code+1))
         invalid_digit_included_codes = []
-        for v in self.S:
+        for v in self.action_space:
             vs = str(v)
             for invalid_digit in self.invalid_digit_set:
                 if(invalid_digit in vs):
                     invalid_digit_included_codes.append(v)
-        self.action_space = self.action_space - set(invalid_digit_included_codes)
+        self.action_space = list(self.action_space - set(invalid_digit_included_codes))
 
     def initGame(self):
         self._initSet()

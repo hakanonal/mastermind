@@ -1,4 +1,4 @@
-from .agentNN import agentNN
+from .agentWC import agentWC
 import wandb
 import random
 from IPython.display import clear_output
@@ -13,7 +13,7 @@ class environment:
         else:
             wandb.init(project="mastermind",config=config)
             self.config = config
-        self.agent7 = agentNN(self.config,self)
+        self.agent7 = agentWC(self.config,self)
         self.config['peg_space'] = list(range(1,self.config['peg_count']+1))
         self.initGame()
         self.metrics = {
