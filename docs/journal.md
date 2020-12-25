@@ -261,3 +261,10 @@
     - ```pip install -r requirements.txt --no-cache-dir``` Befıre dıing that it seems that you have to upgrade pip via ```pip install --upgrade pip``` so that tensorflow version can be detect...
         - While installing tensorflow it is killed after download. According to [this](https://stackoverflow.com/questions/30550235/pip-install-killed) it suggests if you have low on memory. And it worked.
     - Finally!! The [run](https://wandb.ai/hakanonal/mastermind/runs/2k8ai41v) has started
+
+#### 25.12.2020
+
+- When we check this [run](https://wandb.ai/hakanonal/mastermind/runs/2k8ai41v)... Well! Nothing to check here. It iis not improving.
+    - I am wondering if there is correlation between exploration rate and the total wins. Since in total wins time to time there are some plateau. I will check both metric in same graphic. Nope it does not seem to be corrolated. Exploration rate osicliate much faster than the improvement of the wins. Evethough avarage win is also not improving. Besides all of this metrics first of all the initial avarage win is miniculusly small.
+
+- Learned how to install docker on a ubuntu server from [here](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
