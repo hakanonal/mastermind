@@ -273,5 +273,12 @@
 
 - So back to [card](https://github.com/hakanonal/mastermind/projects/1#card-51670583). We need another approach to do it. curentlly I do not have any ideas to move forward with this. So I am holding this card.
 
-- What about [this](https://github.com/hakanonal/mastermind/projects/1#card-51686710) one
-    - 
+- What about [this](https://github.com/hakanonal/mastermind/projects/1#card-51686710) one. Worst case/five guess algorith. It will not going to be about AI stuff but at least it is gıing to perform much better let's implement and see.
+    - So I have copied the agent with the name agentWC.py
+    - Maybe I can check some code from [here](https://github.com/wy/PyMastermind#game-ai)
+        - The struture is a way more different than mine. To perform better I keep the borad not as string but as number.
+    - To create all possible codes all I need is a simple range.
+        - However simple range will not be enough, because we need all digits must be between 1 and 6. I should exlude other numbers that any of the digits include other then 1-6. Ok I have found the action space set in my discovery notebook.
+    - So I have started to initialze the agent. It seems that I need an agent interface so that I wont delete any function.
+
+- I have modified the discovery folder content.

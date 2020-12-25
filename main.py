@@ -14,8 +14,8 @@ config = {
     'mode' : 'ai' # ai | user
 }
 
-#import os
-#os.environ['WANDB_MODE'] = 'dryrun'
+import os
+os.environ['WANDB_MODE'] = 'dryrun'
 
 e = environment(config=config)
 

@@ -13,7 +13,7 @@ class environment:
         else:
             wandb.init(project="mastermind",config=config)
             self.config = config
-        self.agent7 = agentNN(self.config)
+        self.agent7 = agentNN(self.config,self)
         self.config['peg_space'] = list(range(1,self.config['peg_count']+1))
         self.initGame()
         self.metrics = {
@@ -27,6 +27,7 @@ class environment:
         self.state = [[0 for i in range(3)] for j in range(self.config['chances'])] #np.zeros((self.config['chances'],3))
         self.generated_code = self.generateCode()
         self.actions_played = []
+        self.agent7.initGame()
     
     def generateCode(self):
         generated_code = []

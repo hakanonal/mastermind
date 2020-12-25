@@ -35,7 +35,7 @@ python play.py
 ## Code Layout
 
 - `api.py` - It defines the API that is being called by [vue GUI app](https://github.com/hakanonal/mastermind-ui). 
-- `experiment_of_nn.ipynb` - It is the temporary rapid development for the Neural Network agent.
+- `discovery/*.ipynb` - It is the temporary rapid development for the any agent.
 - `main.py` - It is the main python script to executte the agent training for a fixed defined hyper-parameters.
 - `play.ipynb` - It is the wraper to play the game in console via google colab environment.
 - `play.py` - It is the script to play the game in console locally.

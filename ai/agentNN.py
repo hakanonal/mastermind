@@ -7,7 +7,7 @@ from keras.layers import Dense, Flatten, Conv1D, Reshape
 
 class agentNN:
 
-    def __init__(self,config):
+    def __init__(self,config,env):
         self.discount = config['discount']
         self.exploration_rate = config['exploration_rate']
         self.exploration_rate_constant = config['exploration_rate']
@@ -25,6 +25,9 @@ class agentNN:
             self.model.add(Dense(24,activation="relu"))
             self.model.add(Reshape((self.config['digits'],self.config['peg_count'])))
             self.model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+    def initGame(self):
+        return True
 
     def _getModelFilename(self, file="policy"):
         return "%s_%d_%d_%d.h5"%(file,self.config['digits'],self.config['chances'],self.config['peg_count'])

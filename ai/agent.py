@@ -5,7 +5,7 @@ import wandb
 
 class agent:
 
-    def __init__(self,config):
+    def __init__(self,config,env):
         self.discount = config['discount']
         self.exploration_rate = config['exploration_rate']
         self.exploration_rate_constant = config['exploration_rate']
@@ -16,6 +16,9 @@ class agent:
         self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
         self.min_action = int("".join([str(1) for i in range(self.config['digits'])]))
         wandb.config.update({'model_name':'q_table'})
+
+    def initGame(self):
+        return True
 
     def get_next_action(self, state):
         if random.random() < self.exploration_rate: # Explore (gamble) or exploit (greedy)
