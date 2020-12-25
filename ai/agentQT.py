@@ -3,7 +3,7 @@ import random
 import pickle
 import wandb
 
-class agent:
+class agentQT:
 
     def __init__(self,config,env):
         self.discount = config['discount']
