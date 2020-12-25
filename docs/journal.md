@@ -280,5 +280,8 @@
     - To create all possible codes all I need is a simple range.
         - However simple range will not be enough, because we need all digits must be between 1 and 6. I should exlude other numbers that any of the digits include other then 1-6. Ok I have found the action space set in my discovery notebook.
     - So I have started to initialze the agent. It seems that I need an agent interface so that I wont delete any function.
+    - Well I have pluged the agent into environement. And event I did not finifsh it wins 10 games out of 10K games. It took ~30sec. 
+    - Ok I have added the agent class constructor a environment parameter. because for this case I will need the environment's provide feedback function. to remove the unused codes in action space.
+        - Yeap I will implement update or train function to do that. Nope I can not use them because update function is being called after the game is finised. However I need to remove ittems every play. so the correct place is get next action.
 
 - I have modified the discovery folder content.

@@ -50,10 +50,7 @@ class agentNN:
         return int("".join([str(i) for i in generated_code]))
     
     def random_action(self):
-        generated_code = []
-        for _ in range(1,self.config['digits']+1):
-            generated_code.append(random.choice(self.config['peg_space']))
-        return int("".join([str(i) for i in generated_code]))
+        return self.environment.generateRandomCode()
 
     def getQ(self,state):
         state_to_predict = np.expand_dims(state,0)

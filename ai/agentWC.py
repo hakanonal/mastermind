@@ -7,6 +7,7 @@ class agentWC:
 
     def __init__(self,config,env):
         self.config = config
+        self.environment = env
         self.exploration_rate = self.config['exploration_rate']
         self.peg_set = set([str(i) for i in range(1,self.config['peg_count']+1)])
         self.all_digits_set = set([str(i) for i in range(10)])
@@ -32,7 +33,9 @@ class agentWC:
         self._initSet()
 
     def get_next_action(self, state):
-        return self.greedy_action(state)
+        action = self.greedy_action(state)
+        self.environment.
+        return 
 
     def greedy_action(self, state):
         return self.action_space[0]

@@ -1,4 +1,4 @@
-from .agentWC import agentWC
+from .agentQT import agentQT
 import wandb
 import random
 from IPython.display import clear_output
@@ -13,7 +13,7 @@ class environment:
         else:
             wandb.init(project="mastermind",config=config)
             self.config = config
-        self.agent7 = agentWC(self.config,self)
+        self.agent7 = agentQT(self.config,self)
         self.config['peg_space'] = list(range(1,self.config['peg_count']+1))
         self.initGame()
         self.metrics = {
@@ -25,11 +25,11 @@ class environment:
 
     def initGame(self):
         self.state = [[0 for i in range(3)] for j in range(self.config['chances'])] #np.zeros((self.config['chances'],3))
-        self.generated_code = self.generateCode()
+        self.hidden_code = self.generateRandomCode()
         self.actions_played = []
         self.agent7.initGame()
     
-    def generateCode(self):
+    def generateRandomCode(self):
         generated_code = []
         for _ in range(1,self.config['digits']+1):
             generated_code.append(random.choice(self.config['peg_space']))
@@ -92,7 +92,7 @@ class environment:
             if(self.config['mode'] == 'user'):                
                 self.printState(self.state)
                 print(self.metrics)
-                print("Generated code was: %0*d"%(self.config['digits'],self.generated_code))
+                print("Generated code was: %0*d"%(self.config['digits'],self.hidden_code))
 
             self.metrics['exploration_rate'] = self.agent7.exploration_rate
             wandb.log(self.metrics,step=episode)
@@ -100,7 +100,7 @@ class environment:
 
     def play(self,chance,action_to_play):
         new_state = self.state.copy()
-        red,white = self.provideFeedback(self.generated_code,action_to_play)
+        red,white = self.provideFeedback(self.hidden_code,action_to_play)
         new_state[chance-1] = (red,white,action_to_play)
         return new_state
 
@@ -126,7 +126,7 @@ class environment:
         for i in range(self.config['chances']):
             print("| %d+%d | %0*d |"%(state[i][0],state[i][1],self.config['digits'],state[i][2]))
         if(self.config['debug']):
-            print("| --- | %0*d"%(self.config['digits'],self.generated_code))
+            print("| --- | %0*d"%(self.config['digits'],self.hidden_code))
 
     def isEnded(self,state):
         for i in range(self.config['chances']):

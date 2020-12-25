@@ -12,6 +12,7 @@ class agentQT:
         self.decay_factor = config['decay_factor']
         self.learning_rate = config['learning_rate']
         self.config = config
+        self.environment = env
         self.q_table = {}
         self.action_space_count = int("".join([str(self.config['peg_count']) for i in range(self.config['digits'])]))+1
         self.min_action = int("".join([str(1) for i in range(self.config['digits'])]))
@@ -30,10 +31,7 @@ class agentQT:
         return np.argmax(self.getQ(state))
     
     def random_action(self):
-        generated_code = []
-        for _ in range(1,self.config['digits']+1):
-            generated_code.append(random.choice(self.config['peg_space']))
-        return int("".join([str(i) for i in generated_code]))
+        return self.environment.generateRandomCode()
 
     def getQ(self,state):
         state_hash = str(state)
