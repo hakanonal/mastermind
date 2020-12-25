@@ -268,3 +268,10 @@
     - I am wondering if there is correlation between exploration rate and the total wins. Since in total wins time to time there are some plateau. I will check both metric in same graphic. Nope it does not seem to be corrolated. Exploration rate osicliate much faster than the improvement of the wins. Evethough avarage win is also not improving. Besides all of this metrics first of all the initial avarage win is miniculusly small.
 
 - Learned how to install docker on a ubuntu server from [here](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
+
+- Ok I have spent some time to learn how can I run my python scripts iin docker. I tried to install docker to my jump server. The flask API worked perfrectlly well. However, I did not find convienient and flexiable to execute my other training scripts.
+
+- So back to [card](https://github.com/hakanonal/mastermind/projects/1#card-51670583). We need another approach to do it. curentlly I do not have any ideas to move forward with this. So I am holding this card.
+
+- What about [this](https://github.com/hakanonal/mastermind/projects/1#card-51686710) one
+    - 
