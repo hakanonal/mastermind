@@ -285,5 +285,6 @@
         - Yeap I will implement update or train function to do that. Nope I can not use them because update function is being called after the game is finised. However I need to remove ittems every play. so the correct place is get next action.
     - Yes! unbealiavble event I did not implement the minimax algorithm yet. subsidising the action space did improve a lot. my avarage win rate is %42
     - game took 146sec.
+    - Here is the sample [run](https://wandb.ai/hakanonal/mastermind/runs/47nxscdm)
 
 - I have modified the discovery folder content.
