@@ -288,3 +288,11 @@
     - Here is the sample [run](https://wandb.ai/hakanonal/mastermind/runs/47nxscdm)
 
 - I have modified the discovery folder content.
+
+#### 03.01.2021
+
+- My partner and friend. Played my game and won. Ane then he asked did I won? I said yes. So it was not clear for him that he has won. So I decided to open this [card](https://github.com/hakanonal/mastermind/projects/1#card-52088982).
+    - I have found [this](https://www.npmjs.com/package/vue-confetti) component. And installed.
+    - I am typescript'int via learning with [this](https://medium.com/@steveruiz/using-a-javascript-library-without-type-declarations-in-a-typescript-project-3643490015f3) article. 
+    - I have created models/interfaces folder for type defenitions and defined the ApiResult type. Because we are using it in javascipt to compare if the game has been won or not. I have used [this](https://stackoverflow.com/questions/52616172/how-to-initialize-an-object-in-typescript) article to fully understand type definitions.
+- I will also add a simple link to wikipedia to divert user to game rules. [Card](https://github.com/hakanonal/mastermind/projects/1#card-51195264)

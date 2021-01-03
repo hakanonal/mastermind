@@ -28,7 +28,7 @@ def response():
     return {
         'state' : e.state,
         'end' : e.isEnded(e.state) is not None,
-        'generated_code' : e.generated_code,
+        'hidden_code' : e.hidden_code,
         'chance' : e.chance()
     }
 
