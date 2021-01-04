@@ -302,3 +302,8 @@
     - I have reviewd the type definitions again. I am trying to understand [this](https://vuejs.org/v2/guide/typescript.html#Augmenting-Types-for-Use-with-Plugins) official doc.   
 - I will also add a simple link to wikipedia to divert user to game rules. [Card](https://github.com/hakanonal/mastermind/projects/1#card-51195264)
     - However I did not have chance to finish it.
+
+#### 04.01.2021
+
+- I have tried the wrap-up the frontend. I succesfully make the vue-confetti module noticable by typescript. However, this time I am getting a type error on the brpwser console. I rolled back give a simple message. for now. I hate to do that... So I had to add a very simple message. and that's it...
+- I am also going to add a simple link to game rules.
