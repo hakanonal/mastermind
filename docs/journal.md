@@ -295,4 +295,10 @@
     - I have found [this](https://www.npmjs.com/package/vue-confetti) component. And installed.
     - I am typescript'int via learning with [this](https://medium.com/@steveruiz/using-a-javascript-library-without-type-declarations-in-a-typescript-project-3643490015f3) article. 
     - I have created models/interfaces folder for type defenitions and defined the ApiResult type. Because we are using it in javascipt to compare if the game has been won or not. I have used [this](https://stackoverflow.com/questions/52616172/how-to-initialize-an-object-in-typescript) article to fully understand type definitions.
+    - Weirdlly I have build and deployed the app. However I get an TypeError: I.a.start is not a function. (In 'I.a.start()', 'I.a.start' is undefined) message.
+    - And more weirdlly the error alos generated on my local.
+    - Suprisinglly it was workning fine but it stoped working...
+    - It seems that the error was there but I did not test it well by not opening the browser from the begening.
+    - I have reviewd the type definitions again. I am trying to understand [this](https://vuejs.org/v2/guide/typescript.html#Augmenting-Types-for-Use-with-Plugins) official doc.   
 - I will also add a simple link to wikipedia to divert user to game rules. [Card](https://github.com/hakanonal/mastermind/projects/1#card-51195264)
+    - However I did not have chance to finish it.
